@@ -1,18 +1,24 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package integrador.dao;
 
+import integrador.db.ConexionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import integrador.bean.RegistroModelo;
-import integrador.db.ConexionDB;
-
-public class RegistroDao {
+/**
+ *
+ * @author DIEGO
+ */
+public class RegistroDaoP {
     
-     public String registerUser(RegistroModelo registerBean)
+  public String registerUser(RegistroModelo registerBean)
  {
  String nombre = registerBean.getNombres();
- String apellido = registerBean.getApellidos();
  String email = registerBean.getEmail();
  String ruc = registerBean.getRuc_dni();
  String password = registerBean.getPassword();
@@ -24,14 +30,13 @@ public class RegistroDao {
  try
  {
  con = ConexionDB.createConnection();
- String query = "insert into usuarios(id_usuario,nombres,apellidos,email,ruc_dni,passwords,tipo) values (NULL,?,?,?,?,?,?)"; 
+ String query = "insert into usuarios(id_usuario,nombres,apellidos,email,ruc_dni,passwords,tipo) values (NULL,?,NULL,?,?,?,?)"; 
  preparedStatement = con.prepareStatement(query); 
  preparedStatement.setString(1, nombre);
- preparedStatement.setString(2, apellido);
- preparedStatement.setString(3, email);
- preparedStatement.setString(4, ruc);
- preparedStatement.setString(5, password);
- preparedStatement.setString(6, tipo);
+ preparedStatement.setString(2, email);
+ preparedStatement.setString(3, ruc);
+ preparedStatement.setString(4, password);
+ preparedStatement.setString(5, tipo);
 
  
  int i= preparedStatement.executeUpdate();
@@ -43,4 +48,5 @@ public class RegistroDao {
  }
  return "Oops.. Something went wrong there..!"; 
  }
-}
+ }
+

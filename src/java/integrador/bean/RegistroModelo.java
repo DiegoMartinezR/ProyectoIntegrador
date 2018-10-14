@@ -3,17 +3,27 @@ package integrador.bean;
 
 public class RegistroModelo {
     
-    private String fullname;
+    private String nombres;
+    private String apellidos;
     private String email;
-    private String username;
+    private String ruc_dni;
     private String password;
+    private String tipo;
 
-    public String getFullname() {
-        return fullname;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getEmail() {
@@ -24,12 +34,12 @@ public class RegistroModelo {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getRuc_dni() {
+        return ruc_dni;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRuc_dni(String ruc_dni) {
+        this.ruc_dni = ruc_dni;
     }
 
     public String getPassword() {
@@ -39,7 +49,16 @@ public class RegistroModelo {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+
     
     
 }

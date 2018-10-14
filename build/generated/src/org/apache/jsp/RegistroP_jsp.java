@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Registro_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class RegistroP_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -42,8 +42,6 @@ public final class Registro_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<pre>\n");
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n");
       out.write("<html>\n");
@@ -54,7 +52,6 @@ public final class Registro_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("function validate()\n");
       out.write("{\n");
       out.write("var nombres = document.form.nombre.value;\n");
-      out.write("var apellido = document.form.apellido.value;\n");
       out.write("var email = document.form.email.value;\n");
       out.write("var ruc = document.form.ruc.value;\n");
       out.write("var password = document.form.password.value;\n");
@@ -93,24 +90,20 @@ public final class Registro_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</script>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("<center><h2>Registro de Usuario</h2></center>\n");
-      out.write("<form name=\"form\" action=\"RegistroServlet\" method=\"post\" onsubmit=\"return validate()\">\n");
+      out.write("<center><h2>Registro de Proveedor</h2></center>\n");
+      out.write("<form name=\"form\" action=\"RegistroServletP\" method=\"post\" onsubmit=\"return validate()\">\n");
       out.write("<table align=\"center\">\n");
       out.write("<tr>\n");
-      out.write("    <td>Nombre</td>\n");
+      out.write("    <td>Nombre Empresa</td>\n");
       out.write("    <td><input type=\"text\" name=\"nombre\" /></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
-      out.write("    <td>Apellido</td>\n");
-      out.write("    <td><input type=\"text\" name=\"apellido\" /></td>\n");
+      out.write("    <td>Ruc</td>\n");
+      out.write("    <td><input type=\"text\" name=\"ruc\" /></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
       out.write("    <td>Email</td>\n");
       out.write("    <td><input type=\"text\" name=\"email\" /></td>\n");
-      out.write("</tr>\n");
-      out.write("<tr>\n");
-      out.write("    <td>Dni</td>\n");
-      out.write("    <td><input type=\"text\" name=\"ruc\" /></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
       out.write("    <td>Password</td>\n");
@@ -121,13 +114,16 @@ public final class Registro_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <td><input type=\"password\" name=\"conpassword\" /></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
-      out.write("    <td><input type=\"hidden\" name=\"tipo\" value=\"cliente\"/></td>\n");
+      out.write("    <td><input type=\"hidden\" name=\"tipo\" value=\"proveedor\"/></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
       out.write("    <td>");
       out.print((request.getAttribute("errMessage") == null) ? ""
     : request.getAttribute("errMessage"));
       out.write("</td>\n");
+      out.write("</tr>\n");
+      out.write("<tr>\n");
+      out.write("    <td><input type=\"hidden\" name=\"tipo\" value=\"proveedor\"/></td>\n");
       out.write("</tr>\n");
       out.write("<tr>\n");
       out.write("    <td></td>\n");

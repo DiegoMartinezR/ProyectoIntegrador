@@ -14,16 +14,16 @@ pageEncoding="ISO-8859-1"%>
 <script> 
 function validate()
 { 
-var username = document.form.username.value; 
+var dni = document.form.dni.value; 
 var password = document.form.password.value;
-if (username==null || username=="")
+if (dni==null || dni=="")
 { 
-alert("Username cannot be blank"); 
+alert("Dni no puede estar en blanco"); 
 return false; 
 }
 else if(password==null || password=="")
 { 
-alert("Password cannot be blank"); 
+alert("Password no puede estar en blanco"); 
 return false; 
 } 
 }
@@ -35,17 +35,23 @@ return false;
 <form name="form" action="LoginServlet" method="post" onsubmit="return validate()">
 <!-- Do not use table to format fields. As a good practice use CSS -->
 <table align="center">
+ <tr>
+<td>Tipo de Usuario</td>
+<td><select name="tipo">
+  <option value="cliente">Cliente</option>
+  <option value="proveedor">Proveedor</option>
+</select></td>
+</tr>   
 <tr>
-<td>Username</td>
-<td><input type="text" name="username" /></td>
+<td>Dni</td>
+<td><input type="text" name="dni" /></td>
 </tr>
 <tr>
-<td>Password</td>
+<td>Contraseña</td>
 <td><input type="password" name="password" /></td>
 </tr>
 <tr> <!-- refer to the video to understand request.getAttribute() -->
-<td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? ""
-: request.getAttribute("errMessage")%></span></td>
+<td><span style="color:red"><%=(request.getAttribute("errMessage") == null) ? "": request.getAttribute("errMessage")%></span></td>
 </tr>
 <tr>
 <td></td>

@@ -11,12 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class RegistroServlet extends HttpServlet {
-    
-    public RegistroServlet(){
-        
-    }
+public class RegistroServletP extends HttpServlet {
 
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -33,10 +30,8 @@ public class RegistroServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-                 
+     
             String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
             String email = request.getParameter("email");
             String ruc = request.getParameter("ruc");
             String password = request.getParameter("password");
@@ -45,7 +40,6 @@ public class RegistroServlet extends HttpServlet {
             RegistroModelo registerBean = new RegistroModelo();
            
             registerBean.setNombres(nombre);
-            registerBean.setApellidos(apellido);
             registerBean.setEmail(email);
             registerBean.setRuc_dni(ruc);
             registerBean.setPassword(password); 
@@ -60,10 +54,10 @@ public class RegistroServlet extends HttpServlet {
             request.getRequestDispatcher("/Login.jsp").forward(request, response);
             }else{
             request.setAttribute("errMessage", userRegistered);
-            request.getRequestDispatcher("/Registro.jsp").forward(request, response);
-            }
-            
-      }
-
+            request.getRequestDispatcher("/RegistroP.jsp").forward(request, response);
+            }    
+        
+        
+        
     }
-
+}

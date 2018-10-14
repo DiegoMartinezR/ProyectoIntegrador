@@ -15,35 +15,41 @@ pageEncoding="ISO-8859-1"%>
 <script>
 function validate()
 {
-var fullname = document.form.fullname.value;
+var nombres = document.form.nombre.value;
+var apellido = document.form.apellido.value;
 var email = document.form.email.value;
-var username = document.form.username.value;
+var ruc = document.form.ruc.value;
 var password = document.form.password.value;
 var conpassword= document.form.conpassword.value;
-if (fullname==null || fullname=="")
+
+if (nombres==null || nombres=="")
 {
-alert("Full Name can't be blank");
+alert("Nombre no puede estar en blanco");
 return false;
 }
 else if (email==null || email=="")
 {
-alert("Email can't be blank");
+alert("Email no puede estar en blanco");
 return false;
 }
-else if (username==null || username=="")
+else if (ruc==null || ruc=="")
 {
-alert("Username can't be blank");
+alert("Ruc no puede estar en blanco");
 return false;
 }
 else if(password.length<6)
 {
-alert("Password must be at least 6 characters long.");
+alert("Por favor ingrese una contraseña mayor a 6 caracteres.");
 return false;
 }
 else if (password!=conpassword)
 {
-alert("Confirm Password should match with the Password");
+alert("La confimación de la contraseña no coincide");
 return false;
+}
+else if(apellido==null || apellido==""){
+ alert("Apellido no puede estar en blanco");   
+ return false;   
 }
 }
 </script>
@@ -53,16 +59,20 @@ return false;
 <form name="form" action="RegistroServlet" method="post" onsubmit="return validate()">
 <table align="center">
 <tr>
-    <td>Full Name</td>
-    <td><input type="text" name="fullname" /></td>
+    <td>Nombre</td>
+    <td><input type="text" name="nombre" /></td>
+</tr>
+<tr>
+    <td>Apellido</td>
+    <td><input type="text" name="apellido" /></td>
 </tr>
 <tr>
     <td>Email</td>
     <td><input type="text" name="email" /></td>
 </tr>
 <tr>
-    <td>Username</td>
-    <td><input type="text" name="username" /></td>
+    <td>Dni</td>
+    <td><input type="text" name="ruc" /></td>
 </tr>
 <tr>
     <td>Password</td>
@@ -71,6 +81,9 @@ return false;
 <tr>
     <td>Confirm Password</td>
     <td><input type="password" name="conpassword" /></td>
+</tr>
+<tr>
+    <td><input type="hidden" name="tipo" value="cliente"/></td>
 </tr>
 <tr>
     <td><%=(request.getAttribute("errMessage") == null) ? ""

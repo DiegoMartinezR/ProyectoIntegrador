@@ -1,10 +1,8 @@
 <%-- 
-    Document   : Registro
-    Created on : 02-oct-2018, 6:27:46
+    Document   : RegistroP
+    Created on : 11-oct-2018, 14:03:50
     Author     : DIEGO
 --%>
-
-
 <pre><%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,7 +14,6 @@ pageEncoding="ISO-8859-1"%>
 function validate()
 {
 var nombres = document.form.nombre.value;
-var apellido = document.form.apellido.value;
 var email = document.form.email.value;
 var ruc = document.form.ruc.value;
 var password = document.form.password.value;
@@ -47,32 +44,24 @@ else if (password!=conpassword)
 alert("La confimación de la contraseña no coincide");
 return false;
 }
-else if(apellido==null || apellido==""){
- alert("Apellido no puede estar en blanco");   
- return false;   
-}
 }
 </script>
 </head>
 <body>
-<center><h2>Registro de Usuario</h2></center>
-<form name="form" action="RegistroServlet" method="post" onsubmit="return validate()">
+<center><h2>Registro de Proveedor</h2></center>
+<form name="form" action="RegistroServletP" method="post" onsubmit="return validate()">
 <table align="center">
 <tr>
-    <td>Nombre</td>
+    <td>Nombre Empresa</td>
     <td><input type="text" name="nombre" /></td>
 </tr>
 <tr>
-    <td>Apellido</td>
-    <td><input type="text" name="apellido" /></td>
+    <td>Ruc</td>
+    <td><input type="text" name="ruc" /></td>
 </tr>
 <tr>
     <td>Email</td>
     <td><input type="text" name="email" /></td>
-</tr>
-<tr>
-    <td>Dni</td>
-    <td><input type="text" name="ruc" /></td>
 </tr>
 <tr>
     <td>Password</td>
@@ -83,11 +72,14 @@ else if(apellido==null || apellido==""){
     <td><input type="password" name="conpassword" /></td>
 </tr>
 <tr>
-    <td><input type="hidden" name="tipo" value="cliente"/></td>
+    <td><input type="hidden" name="tipo" value="proveedor"/></td>
 </tr>
 <tr>
     <td><%=(request.getAttribute("errMessage") == null) ? ""
     : request.getAttribute("errMessage")%></td>
+</tr>
+<tr>
+    <td><input type="hidden" name="tipo" value="proveedor"/></td>
 </tr>
 <tr>
     <td></td>
